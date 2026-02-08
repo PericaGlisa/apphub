@@ -1,0 +1,8 @@
+{
+  "name": "AppHub.ae - Smart Marketing Consulting",
+  "description": "Leading marketing consulting agency in Dubai offering growth hacking, predictive analytics, and top-tier strategic consulting.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
