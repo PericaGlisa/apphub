@@ -188,8 +188,15 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-[#08090C] z-40 flex flex-col pt-32 px-6 lg:hidden overflow-y-auto"
+            className="fixed inset-0 bg-[#08090C] z-[60] flex flex-col pt-32 px-6 lg:hidden overflow-y-auto"
           >
+            <button
+              onClick={closeMenu}
+              className="fixed top-6 right-6 p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors z-[70]"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FFC2]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
             
