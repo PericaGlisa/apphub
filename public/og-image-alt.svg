@@ -1,0 +1,40 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="50%" stop-color="#0A1222"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="30%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#1E40AF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="70%" cy="80%" r="60%">
+      <stop offset="0%" stop-color="#00FFC2" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00FFC2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFC2"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.08)"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+  <rect width="1200" height="630" fill="url(#glowA)"/>
+  <rect width="1200" height="630" fill="url(#glowB)"/>
+
+  <g transform="translate(600, 315)">
+    <rect x="-120" y="-120" width="240" height="240" rx="64" fill="url(#accent)"/>
+    <rect x="-96" y="-96" width="192" height="192" rx="48" fill="#050505" opacity="0.7"/>
+    <path d="M-46 -54 L64 -54 L64 56 L-46 56 Z" fill="#050505"/>
+    <path d="M-46 -54 L8 -54 L8 82 L-46 82 Z" fill="#050505"/>
+  </g>
+
+  <text x="600" y="520" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="36" fill="#E2E8F0" letter-spacing="3">
+    APPHUB.AE
+  </text>
+</svg>
