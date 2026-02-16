@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Globe, Menu, X, Zap, Users, Layers, Cpu, ChevronRight, ArrowRight } from 'lucide-react';
+import { Send, Globe, X, Zap, Users, Layers, Cpu, ChevronRight, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { services } from '../data/services';
 
@@ -69,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || isServicesOpen ? 'py-4 bg-black/80 backdrop-blur-2xl border-b border-white/5' : 'py-6 md:py-10'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || isServicesOpen ? 'py-4 bg-black/80 backdrop-blur-2xl border-b border-white/5' : 'py-6 md:py-10'} ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : ''} lg:opacity-100 lg:pointer-events-auto`}
         onMouseLeave={() => setIsServicesOpen(false)}
       >
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-between relative z-50">
@@ -80,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-3"
               >
-                <img src="/logo.png" alt="AppHub.ae Logo" className="h-24 w-auto object-contain" />
+                <img src="/logo.png" alt="AppHub.ae Logo" className="h-12 sm:h-16 md:h-24 w-auto object-contain" />
               </motion.div>
             </Link>
 
@@ -114,7 +114,20 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               <span>Contact</span>
             </Link>
             <button className="lg:hidden p-2 text-gray-400 z-50 relative" onClick={toggleMenu}>
-              {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? (
+                <div className="relative w-7 h-7">
+                  <span className="absolute top-1/2 left-0 w-7 h-[2px] bg-gradient-to-r from-[#00FFC2] to-blue-500 rounded-full rotate-45" />
+                  <span className="absolute top-1/2 left-0 w-7 h-[2px] bg-white/80 rounded-full -rotate-45" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full border border-[#00FFC2]/60" />
+                </div>
+              ) : (
+                <div className="relative w-7 h-7">
+                  <span className="absolute left-0 top-1.5 w-7 h-[2px] bg-gradient-to-r from-[#00FFC2] to-blue-500 rounded-full" />
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-[2px] bg-white/80 rounded-full" />
+                  <span className="absolute left-0 bottom-1.5 w-6 h-[2px] bg-white/50 rounded-full" />
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#00FFC2] rounded-full" />
+                </div>
+              )}
             </button>
           </div>
         </div>
@@ -188,14 +201,18 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-[#08090C] z-[60] flex flex-col pt-32 px-6 lg:hidden overflow-y-auto"
+            className="fixed inset-0 bg-[#08090C] z-[60] flex flex-col pt-32 px-6 lg:hidden overflow-y-auto overflow-x-hidden"
           >
             <button
               onClick={closeMenu}
-              className="fixed top-6 right-6 p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors z-[70]"
+              className="fixed top-6 right-6 p-3 rounded-2xl bg-[#0B0D12] border border-white/15 text-white hover:bg-[#121520] transition-colors z-[90] shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
               aria-label="Close menu"
             >
-              <X className="w-6 h-6" />
+              <div className="relative w-7 h-7">
+                <span className="absolute top-1/2 left-0 w-7 h-[2px] bg-gradient-to-r from-[#00FFC2] to-blue-500 rounded-full rotate-45" />
+                <span className="absolute top-1/2 left-0 w-7 h-[2px] bg-white/80 rounded-full -rotate-45" />
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full border border-[#00FFC2]/60" />
+              </div>
             </button>
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FFC2]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
@@ -222,7 +239,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               ))}
             </nav>
 
-            <motion.div variants={itemVariants} className="mt-auto mb-12 relative z-10">
+            <motion.div variants={itemVariants} className="mt-auto pt-8 mb-12 relative z-10">
                <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
                   <h4 className="text-white font-bold mb-2">Need immediate assistance?</h4>
                   <p className="text-slate-400 text-sm mb-6">Our support team is available 24/7 for critical infrastructure issues.</p>

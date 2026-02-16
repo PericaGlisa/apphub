@@ -57,7 +57,7 @@ const ProjectNexus: React.FC = () => {
   };
 
   return (
-    <div className="w-full min-h-[800px] h-auto spotlight-card rounded-[2rem] md:rounded-[5rem] overflow-hidden flex flex-col relative shadow-3xl bg-[#08090C]">
+    <div className="w-full min-h-[620px] sm:min-h-[700px] lg:min-h-[800px] h-auto spotlight-card rounded-[2rem] md:rounded-[5rem] overflow-hidden flex flex-col relative shadow-3xl bg-[#08090C]">
       {/* Engineering Header */}
       <div className="h-auto py-6 md:py-0 md:h-24 bg-white/[0.02] border-b border-white/5 flex flex-col md:flex-row items-center justify-between px-6 md:px-16 z-20 gap-6 md:gap-0">
         <div className="flex items-center gap-6">
@@ -100,7 +100,7 @@ const ProjectNexus: React.FC = () => {
 
         {/* Display Core */}
         <div className="flex-1 flex flex-col bg-black/20 min-h-0">
-          <div className="flex-1 relative p-6 md:p-20 overflow-y-auto">
+        <div className="flex-1 relative p-6 sm:p-10 md:p-20 overflow-y-auto">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStage}

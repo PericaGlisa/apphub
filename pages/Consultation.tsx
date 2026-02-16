@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, CheckCircle, ArrowRight, Check, Loader2 } from 'lucide-react';
+import { Calendar, Clock, CheckCircle, ArrowRight, Check, Loader2, ShieldCheck, TrendingUp, Users, Zap } from 'lucide-react';
 
 const Consultation: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -24,11 +24,13 @@ const Consultation: React.FC = () => {
 
   return (
     <div className="pt-32 min-h-screen">
-      <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24">
+      <section className="relative max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24 overflow-hidden">
+        <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[90vw] h-[45vh] bg-blue-900/10 blur-[160px] opacity-50 pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-0 w-[60vw] h-[40vh] bg-[#00FFC2]/10 blur-[180px] opacity-30 pointer-events-none" />
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-24 md:mb-32 text-center"
+          className="mb-16 md:mb-20 text-center relative z-10"
         >
           <span className="text-[#00FFC2] font-mono text-[11px] md:text-[13px] tracking-[0.6em] uppercase mb-10 block font-bold">
             High-Level Access
@@ -36,14 +38,43 @@ const Consultation: React.FC = () => {
           <h1 className="text-[clamp(2.5rem,7vw,7rem)] font-black mb-10 tracking-tighter leading-[0.85] text-white uppercase">
             Strategic <br /> Consultation.
           </h1>
-          <p className="text-slate-500 text-lg md:text-2xl max-w-4xl mx-auto font-light leading-relaxed tracking-tight px-4">
-            Secure a dedicated session with our senior engineers and strategists. We dissect your current infrastructure and map the path to market dominance.
+          <p className="text-slate-400 text-lg md:text-2xl max-w-4xl mx-auto font-light leading-relaxed tracking-tight px-4">
+            Secure a dedicated session with senior engineers and strategists. We dissect your stack, quantify opportunity, and map the fastest path to compounding advantage.
           </p>
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="#request-session" className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-[#00FFC2] text-black font-black uppercase tracking-widest text-sm md:text-base hover:scale-105 transition-transform shadow-[0_0_40px_rgba(0,255,194,0.3)]">
+              Request Session
+            </a>
+            <a href="/strategy" className="w-full sm:w-auto px-10 py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white font-bold uppercase tracking-widest text-sm md:text-base hover:bg-white/[0.08] transition-all">
+              View Strategy
+            </a>
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.35em] text-slate-500">
+            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Response SLA: 2h</span>
+            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Senior‑Only Team</span>
+            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">NDA on Request</span>
+            <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Global Coverage</span>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          {/* Left Column: Info & Value Prop */}
-          <div className="space-y-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start relative z-10">
+          <div className="space-y-10 md:space-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { title: 'Signal Depth', value: '99%', icon: TrendingUp },
+                { title: 'Decision Window', value: '14 Days', icon: Clock },
+                { title: 'Team Density', value: 'Senior‑Only', icon: Users }
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-center backdrop-blur-xl hover:bg-white/[0.08] hover:border-[#00FFC2]/30 transition-all">
+                  <div className="flex items-center justify-center gap-2 text-[10px] font-mono uppercase tracking-[0.35em] text-slate-400 mb-2">
+                    <item.icon className="w-4 h-4 text-[#00FFC2]" />
+                    {item.title}
+                  </div>
+                  <div className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">{item.value}</div>
+                </div>
+              ))}
+            </div>
+
             <div className="bg-white/[0.03] border border-white/5 rounded-[2rem] p-10 backdrop-blur-sm">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-8 tracking-tight">What to Expect</h3>
               <ul className="space-y-8">
@@ -73,13 +104,26 @@ const Consultation: React.FC = () => {
               <p className="text-white text-3xl md:text-4xl font-black tracking-tight mb-2">45 - 90 Minutes</p>
               <p className="text-blue-200/60">Depending on project complexity.</p>
             </div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-8 md:p-10">
+              <div className="flex items-center gap-3 text-[#00FFC2] font-mono text-xs uppercase tracking-widest mb-6">
+                <ShieldCheck className="w-4 h-4" />
+                Confidentiality Protocol
+              </div>
+              <p className="text-slate-400 text-base md:text-lg font-light leading-relaxed">
+                Sensitive workflows stay protected. NDA-ready engagement and zero‑leak handling across data, infrastructure, and execution plans.
+              </p>
+            </div>
           </div>
 
-          {/* Right Column: Booking Form/Calendar Placeholder */}
-          <div className="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-8 md:p-12 shadow-3xl relative overflow-hidden">
-            <div className="flex items-center gap-4 mb-10">
+          <div id="request-session" className="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-8 md:p-12 shadow-3xl relative overflow-hidden">
+            <div className="flex items-center gap-4 mb-6">
               <Calendar className="w-6 h-6 text-[#00FFC2]" />
               <h3 className="text-2xl font-bold text-white tracking-tight">Request Session</h3>
+            </div>
+            <div className="flex flex-wrap gap-3 text-[10px] font-mono uppercase tracking-[0.35em] text-slate-500 mb-10">
+              <span className="px-3 py-2 rounded-full border border-white/10 bg-white/[0.02]">No Obligation</span>
+              <span className="px-3 py-2 rounded-full border border-white/10 bg-white/[0.02]">Private Briefing</span>
+              <span className="px-3 py-2 rounded-full border border-white/10 bg-white/[0.02]">Senior Review</span>
             </div>
 
             {isSubmitted ? (
@@ -190,6 +234,56 @@ const Consultation: React.FC = () => {
               </form>
             )}
           </div>
+        </div>
+      </section>
+
+      <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-20 md:py-32">
+        <div className="text-center mb-16 md:mb-20">
+          <span className="text-[#00FFC2] font-mono text-[10px] md:text-[12px] tracking-[0.6em] uppercase mb-8 block font-bold">
+            Engagement Flow
+          </span>
+          <h2 className="text-[clamp(2.2rem,6vw,6rem)] font-black tracking-tighter mb-8 leading-[0.9] text-white uppercase">
+            SIGNAL. SYSTEM. SCALE.
+          </h2>
+          <p className="text-slate-500 text-lg md:text-2xl max-w-4xl mx-auto font-light leading-relaxed tracking-tight px-4">
+            A three‑stage engagement engineered to move from insight to execution without friction.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { step: '01', title: 'Discovery Sync', desc: 'We isolate bottlenecks and quantify opportunity.' },
+            { step: '02', title: 'Blueprint Sprint', desc: 'We architect the stack and define execution lanes.' },
+            { step: '03', title: 'Deployment Plan', desc: 'We align timeline, resources, and launch checkpoints.' }
+          ].map((item, idx) => (
+            <motion.div
+              key={item.step}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 overflow-hidden hover:bg-white/[0.05] hover:border-[#00FFC2]/30 transition-all"
+            >
+              <div className="text-[#00FFC2] font-mono text-[10px] tracking-[0.6em] uppercase mb-4 font-bold">
+                {item.step}
+              </div>
+              <h3 className="text-white text-lg font-bold uppercase tracking-tight mb-3">{item.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.35em] text-slate-500">
+          <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02] flex items-center gap-2">
+            <Zap className="w-4 h-4 text-[#00FFC2]" />
+            Fast Turnaround
+          </span>
+          <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02] flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#00FFC2]" />
+            Secure Handling
+          </span>
+          <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02] flex items-center gap-2">
+            <TrendingUp className="w-4 h-4 text-[#00FFC2]" />
+            Performance Focused
+          </span>
         </div>
       </section>
     </div>

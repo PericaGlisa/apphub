@@ -7,12 +7,13 @@ import Contact from '../components/Contact';
 const About: React.FC = () => {
   return (
     <div className="pt-32">
-       {/* Hero Section */}
-       <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24">
+       <section className="relative max-w-[1600px] mx-auto px-6 md:px-12 py-12 md:py-24 overflow-hidden">
+         <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[90vw] h-[45vh] bg-blue-900/10 blur-[160px] opacity-50 pointer-events-none" />
+         <div className="absolute bottom-[-10%] right-0 w-[60vw] h-[40vh] bg-[#00FFC2]/10 blur-[180px] opacity-30 pointer-events-none" />
          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-24 text-center"
+            className="mb-20 md:mb-24 text-center relative z-10"
          >
             <span className="text-[#00FFC2] font-mono text-[11px] md:text-[13px] tracking-[0.6em] uppercase mb-10 block font-bold">
               Who We Are
@@ -20,6 +21,23 @@ const About: React.FC = () => {
             <h1 className="text-[clamp(2.5rem,8vw,8.5rem)] font-black tracking-tighter mb-10 leading-[0.85] text-white uppercase">
               ARCHITECTS OF <br /> INFLUENCE.
             </h1>
+            <p className="text-slate-400 text-lg md:text-2xl font-light leading-relaxed tracking-tight max-w-4xl mx-auto">
+              We build AI-first growth infrastructure that compounds. Strategy, engineering, and narrative control fused into one operating system for market leadership.
+            </p>
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+              <a href="/consultation" className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-[#00FFC2] text-black font-black uppercase tracking-widest text-sm md:text-base hover:scale-105 transition-transform shadow-[0_0_40px_rgba(0,255,194,0.3)]">
+                Start Consultation
+              </a>
+              <a href="/services" className="w-full sm:w-auto px-10 py-5 rounded-2xl border border-white/10 bg-white/[0.03] text-white font-bold uppercase tracking-widest text-sm md:text-base hover:bg-white/[0.08] transition-all">
+                View Capabilities
+              </a>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-[10px] md:text-[11px] font-mono uppercase tracking-[0.35em] text-slate-500">
+              <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">AI Infrastructure</span>
+              <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Predictive Analytics</span>
+              <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Full‑Stack Growth</span>
+              <span className="px-4 py-2 rounded-full border border-white/10 bg-white/[0.02]">Market Intelligence</span>
+            </div>
          </motion.div>
 
          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32 items-center">
@@ -31,14 +49,13 @@ const About: React.FC = () => {
             >
               <h2 className="text-3xl font-bold text-white mb-6 uppercase tracking-tight">The AppHub Standard</h2>
               <p className="mb-6">
-                AppHub.ae isn't a traditional agency. We are a collective of systems engineers, data scientists, and creative strategists who believe that marketing is an engineering problem, not an art project.
+                AppHub.ae is a systems studio. We blend engineering, data science, and creative strategy to turn complex market signals into deployable growth engines.
               </p>
               <p>
-                Founded in the heart of the Middle East's tech revolution, we operate with a singular mission: to provide our partners with unfair market advantages through superior technological infrastructure and data-driven narrative control.
+                Based in the Middle East’s tech epicenter, we deliver unfair advantage through resilient infrastructure, predictive intelligence, and execution velocity.
               </p>
             </motion.div>
             
-            {/* Stats Grid */}
             <motion.div 
                initial={{ opacity: 0, x: 20 }}
                whileInView={{ opacity: 1, x: 0 }}
@@ -51,7 +68,7 @@ const About: React.FC = () => {
                     { label: "Data Sovereignty", value: "100%", icon: Lock },
                     { label: "Global Partners", value: "12+", icon: Globe },
                 ].map((stat, idx) => (
-                    <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-center items-center text-center hover:bg-white/10 transition-colors group">
+                    <div key={idx} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl flex flex-col justify-center items-center text-center hover:bg-white/[0.08] hover:border-[#00FFC2]/30 transition-all group backdrop-blur-xl">
                         <stat.icon className="w-8 h-8 text-[#00FFC2] mb-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                         <h4 className="text-3xl font-bold text-white mb-1">{stat.value}</h4>
                         <span className="text-xs font-mono uppercase tracking-widest text-slate-500">{stat.label}</span>
@@ -60,7 +77,6 @@ const About: React.FC = () => {
             </motion.div>
          </div>
 
-         {/* Philosophy Section */}
          <div className="mb-32">
             <div className="text-center mb-16">
                 <span className="text-[#00FFC2] font-mono text-xs tracking-[0.4em] uppercase mb-4 block">Our Methodology</span>
@@ -94,7 +110,7 @@ const About: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.2 }}
-                        className="relative p-8 border border-white/10 rounded-3xl bg-black/20 overflow-hidden group hover:border-[#00FFC2]/50 transition-all duration-500"
+                        className="relative p-8 border border-white/10 rounded-3xl bg-white/[0.02] overflow-hidden group hover:border-[#00FFC2]/50 hover:-translate-y-1 transition-all duration-500"
                     >
                         <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <span className="text-6xl font-black text-white">{item.step}</span>
@@ -121,10 +137,10 @@ const About: React.FC = () => {
                <span className="text-[#00FFC2] font-mono text-xs tracking-[0.4em] uppercase mb-4 block">Core Directives</span>
                <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6">Code We Live By</h2>
                <p className="text-slate-500 text-lg font-light mb-8 max-w-md">
-                   Our culture is defined by a relentless pursuit of engineering perfection in a marketing world obsessed with ambiguity.
+                   We operate with precision, speed, and transparency. Every decision is tied to measurable outcomes and system resilience.
                </p>
                <a href="/consultation" className="inline-flex items-center gap-3 text-white font-bold border-b border-[#00FFC2] pb-1 hover:text-[#00FFC2] transition-colors uppercase tracking-widest text-sm">
-                   Join the team <Zap className="w-4 h-4" />
+                   Talk to us <Zap className="w-4 h-4" />
                </a>
             </motion.div>
 
@@ -141,7 +157,7 @@ const About: React.FC = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors"
+                        className="bg-white/[0.03] p-6 rounded-2xl border border-white/10 hover:bg-white/[0.08] hover:border-[#00FFC2]/30 transition-all"
                     >
                         <val.icon className="w-6 h-6 text-[#00FFC2] mb-4" />
                         <h4 className="text-white font-bold uppercase mb-2 text-sm">{val.title}</h4>

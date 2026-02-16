@@ -18,7 +18,7 @@ const BentoGrid: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
-            className="relative h-full bg-[#0A0A0A] border border-white/5 hover:border-[#00FFC2]/50 rounded-2xl p-6 flex flex-col transition-all duration-300 hover:bg-white/[0.02] overflow-hidden"
+            className="relative h-full bg-[#0A0A0A] border border-white/5 hover:border-[#00FFC2]/50 rounded-2xl p-6 flex flex-col transition-all duration-300 hover:bg-white/[0.03] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.45)] overflow-hidden"
           >
             {/* Hover Glow Effect */}
             <div className="absolute top-0 right-0 w-[100px] h-[100px] bg-[#00FFC2]/10 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
